@@ -1,0 +1,12 @@
+select 
+MAX(case when occupation = 'Doctor' then Name end) as Doctor,
+MAX(case when occupation = 'Professor' then Name end) as Professor,
+MAX(case when occupation = 'Singer' then Name end) as Singer,
+MAX(case when occupation = 'Actor' then Name end) as Actor
+FROM
+(
+select *,
+ROW_NUMBER() OVER (PARTITION BY Occupation ORDER BY Name) as rn
+from occupations
+) p
+GROUP BY rn
