@@ -1,1 +1,1 @@
-# GFG-SQL-Medium-Questions
+# Hackerank-SQL-Medium-Questions
